@@ -3,7 +3,7 @@
 Статический двуязычный сайт (RU / EN) без сборки и зависимостей. Одна страница + вложенные уровни: кейсы и документы открываются в модальных окнах.
 
 ```
-portfolio/
+сайт портфолио/
 ├── index.html                 # русская версия
 ├── en/index.html              # английская версия
 ├── assets/
@@ -13,13 +13,15 @@ portfolio/
 │   ├── js/main.js             # меню, диалоги, анимации, подстановка контактов
 │   ├── fonts/                 # Golos Text + JetBrains Mono (OFL), woff2
 │   └── img/                   # сканы сертификатов (webp), favicon, og.jpg
+├── preview/                   # скриншоты для проверки (в git не попадают)
+├── исходники/                 # исходные сканы сертификатов (в git не попадают)
 └── README.md
 ```
 
 ## Локальный просмотр
 
 ```bash
-cd portfolio
+cd "сайт портфолио"
 python3 -m http.server 8000
 # http://localhost:8000
 ```
@@ -107,7 +109,7 @@ server {
 Как обновить сайт после правок:
 
 ```bash
-cd portfolio
+cd "сайт портфолио"
 git add -A
 git commit -m "content: правки"
 git push
