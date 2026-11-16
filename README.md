@@ -91,3 +91,38 @@ server {
 2. Абсолютные `og:url` и `og:image` после привязки домена; `sitemap.xml` и `robots.txt`.
 3. Фото для hero (портрет) и, при желании, PDF-профиль для отправки клиентам.
 4. Аналитику (Plausible / Яндекс.Метрика) и событие «клик по CTA».
+
+## Публикация: GitHub Pages
+
+Сайт залит на GitHub и опубликован как обычная статика — сборки нет, деплой = `git push`.
+
+| Что | Значение |
+|---|---|
+| Сайт (RU) | <https://anatoliy5606-dotcom.github.io/portfolio/> |
+| Сайт (EN) | <https://anatoliy5606-dotcom.github.io/portfolio/en/> |
+| Репозиторий | <https://github.com/anatoliy5606-dotcom/portfolio> (публичный) |
+| Источник | ветка `main`, каталог `/` |
+| Сборка | GitHub Pages, `legacy` build |
+
+Как обновить сайт после правок:
+
+```bash
+cd portfolio
+git add -A
+git commit -m "content: правки"
+git push
+```
+
+Pages пересобирается 30–60 секунд; прогресс — вкладка **Actions** или
+`gh api repos/anatoliy5606-dotcom/portfolio/pages/builds/latest`.
+
+**Индексация закрыта** — в корне лежит `robots.txt` с `Disallow: /`, пока это черновик
+для личного просмотра. Когда сайт будет готов для поиска, удалите `robots.txt`
+(файл `.nojekyll` оставьте — он отключает обработку Jekyll).
+
+**Свой домен** — Settings → Pages → Custom domain, затем CNAME у регистратора на
+`anatoliy5606-dotcom.github.io`. После привязки домена обновите абсолютные `og:url`
+и `og:image` (сейчас они указывают на `anatoliy5606-dotcom.github.io/portfolio/`).
+
+**Токен GitHub CLI** на этой машине хранится в `.tmp/gh/hosts.yml` (каталог `.tmp/`
+в `.gitignore`) — в репозиторий он не попадает.
